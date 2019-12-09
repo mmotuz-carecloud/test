@@ -1,5 +1,6 @@
 FROM node:10
 
+ENV env_var_from_docker_file=somevalue
 # Create app directory
 WORKDIR /usr/src/app
 
@@ -15,5 +16,5 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-EXPOSE 8080
+EXPOSE 8010
 CMD [ "node", "server.js" ]
