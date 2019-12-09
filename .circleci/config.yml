@@ -49,7 +49,7 @@ jobs:
       - gcp-gke/rollout-image:
           cluster: test-cluster
           deployment: test-server
-          container: test-server:v2
+          container: test-server
           image: gcr.io/crucial-limiter-258015/test-server:v2 # change version when updating
 workflows:
   build_update_deploy:
