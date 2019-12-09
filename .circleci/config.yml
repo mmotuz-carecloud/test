@@ -32,10 +32,10 @@ jobs:
       - gcp-gcr/gcr-auth
       - gcp-gcr/build-image:
           image: test-server
-          tag: "v2" #Change version number e.g to 'v3' when updating application
+          tag: "v3" #Change version number e.g to 'v3' when updating application
       - gcp-gcr/push-image:
           image: test-server
-          tag: "v2" #Change version number e.g to 'v3' when updating application
+          tag: "v3" #Change version number e.g to 'v3' when updating application
 
   deploy:
     description: Deploy application to Google Kubernetes Engine
@@ -50,7 +50,7 @@ jobs:
           cluster: test-cluster
           deployment: test-server-app
           container: test-server
-          image: gcr.io/crucial-limiter-258015/test-server:v2 # change version when updating
+          image: gcr.io/crucial-limiter-258015/test-server@sha256:f84545274faee6302c008b5b0dad0bb842445e81682b1480dc0d37c98d1a01c6 # change version when updating
 workflows:
   build_update_deploy:
     jobs:
