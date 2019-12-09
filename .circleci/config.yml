@@ -47,8 +47,9 @@ jobs:
       - gcp-gke/init
       # Update a deployment Docker image.
       - gcp-gke/rollout-image:
-          deployment: test-cluster
-          container: test-container
+          cluster: test-cluster
+          deployment: test-server
+          container: test-server:v2
           image: gcr.io/crucial-limiter-258015/test-server:v2 # change version when updating
 workflows:
   build_update_deploy:
