@@ -1,6 +1,5 @@
 version: 2.1
 orbs:
-  node: circleci/node@1.1.6
   gcp-gke: circleci/gcp-gke@0.2.0
   gcp-gcr: circleci/gcp-gcr@0.6.1
 jobs:
@@ -23,6 +22,7 @@ workflows:
     jobs:
       - gcp-gcr/build-and-push-image:
           context: dev
+          extra_build_args: "--build-arg token=$NPM_TOKEN"
           image: test-server
           tag: "v6" #Change version number when updating application
       - deploy:
