@@ -24,10 +24,10 @@ jobs:
           cache-key: package.json
           # Ignore non-checksum cache hits
           use-strict-cache: true
-  - gcp-gcr/build-and-push-image:
-    context: dev
-    image: test-server
-    tag: "v5" #Change version number when updating application
+  gcp-gcr/build-and-push-image:
+      context: dev
+      image: test-server
+      tag: "v5" #Change version number when updating application
 
   deploy:
     description: Deploy application to Google Kubernetes Engine
