@@ -29,14 +29,9 @@ jobs:
     machine: true
     steps:
       - checkout
-      - gcp-gcr/gcr-auth:
-          context: dev
-      - gcp-gcr/build-image:
+      - gcp-gcr/build-and-push-image:
           context: dev
           extra_build_args: '--build-arg auth_token=$NPM_TOKEN'
-          image: test-server
-          tag: "v5" #Change version number when updating application
-      - gcp-gcr/push-image:
           image: test-server
           tag: "v5" #Change version number when updating application
 
