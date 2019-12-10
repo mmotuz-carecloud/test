@@ -10,7 +10,8 @@ const HOST = '0.0.0.0';
 const app = express();
 app.get('/', (req, res) => {
   let response = {
-    "process.env": process.env
+    "process.env": process.env,
+      "version": 5
   }
   res.json(response);
 });

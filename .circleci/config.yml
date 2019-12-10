@@ -30,12 +30,15 @@ jobs:
     steps:
       - checkout
       - gcp-gcr/gcr-auth
+          context: dev
       - gcp-gcr/build-image:
+          context: dev
+          extra_build_args: '--build-arg auth_token=$NPM_TOKEN'
           image: test-server
-          tag: "v5" #Change version number e.g to 'v3' when updating application
+          tag: "v5" #Change version number when updating application
       - gcp-gcr/push-image:
           image: test-server
-          tag: "v5" #Change version number e.g to 'v3' when updating application
+          tag: "v5" #Change version number when updating application
 
   deploy:
     description: Deploy application to Google Kubernetes Engine
