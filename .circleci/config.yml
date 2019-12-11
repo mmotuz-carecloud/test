@@ -22,7 +22,7 @@ workflows:
     jobs:
       - gcp-gcr/build-and-push-image:
           context: dev
-          extra_build_args: "--build-arg token=$NPM_TOKEN"
+          extra_build_args: "--build-arg token=$NPM_TOKEN --build-arg se=1"
           image: test-server
           tag: "v6" #Change version number when updating application
       - deploy:

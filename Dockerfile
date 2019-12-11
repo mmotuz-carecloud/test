@@ -1,7 +1,8 @@
 FROM node:10
-
+ARG token
+ARG se
 ENV env_var_from_docker_file=somevalue
-# Create app directory
+# Create app direct
 WORKDIR /usr/src/app
 
 # Install app dependencies
