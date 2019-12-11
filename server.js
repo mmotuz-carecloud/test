@@ -11,7 +11,7 @@ const app = express();
 app.get('/', (req, res) => {
   let response = {
     "process.env": process.env,
-      "version": 5
+      "version": 7
   }
   res.json(response);
 });
